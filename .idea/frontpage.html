@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forside</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="form_wrapper">
+    <form action="næste_side.html" method="post">
+
+        <h1>Skræddersyet Træningsprogram</h1>
+        <img src="images/arm.png" alt="symbol" class="symbol">
+
+<h2> Brugeroplysninger </h2>
+<div class="form_group">
+    <label>Navn</label>
+    <input type="text" name="name" class="inputfield" id="username" required>
+</div>
+
+<div class="form_group">
+    <label>Højde (cm) </label>
+    <input type="text" name="højde" class="inputfield" id="højde" placeholder="eks: 185" required>
+</div>
+
+<div class="form_group">
+    <label>Vægt (kg) </label>
+    <input type="text" name="vægt" class="inputfield" id="vægt" placeholder="eks: 78" required>
+</div>
+
+<div class="form_group">
+    <label>Køn</label>
+    <select type="select" name="køn" class="drop_down" id="køn" required>
+        <option value="mand">Mand</option>
+        <option value="kvinde">Kvinde</option>
+        <option value="andet">Andet</option>
+    </select>
+</div>
+
+<div class="form_group">
+    <label>Nuværende Aktivitetsniveau</label>
+    <select type="select" name="aktivitetsniveau" class="drop_down" id="aktivitetsniveau" required>
+        <option value="1"> 1 - Meget stillesidende</option>
+        <option value="2"> 2 - Lidt aktiv </option>
+        <option value="3"> 3 - Moderat aktiv </option>
+        <option value="4"> 4 - Aktiv </option>
+        <option value="5"> 5 - Meget aktiv </option>
+    </select>
+    <small id="aktiv_beskrivelse" class="info_text"></small>
+</div>
+
+<h2>Personlige Mål & Præfferencer</h2>
+<div class="form_group">
+    <p>Vælg det udsagn der passer bedst til dig: </p>
+    <label>Målet med min træning er at opnå </label>
+    <select type="select" name="mål" class="drop_down" id="mål" required>
+        <option value="udholdenhed">... mere udholdenhed</option>
+        <option value="muskelmasse">... større muskelmasse</option>
+        <option value="vægt">... en lavere vægt</option>
+        <option value="cardio">... en bedre cardio</option>
+        <option value="sundhed">... en øget generel sundhed</option>
+    </select>
+</div>
+
+<div class="form_group">
+    <label>Mit nuværende træningsniveau er...  </label>
+    <select type="select" name="træningsniveau" class="drop_down" id="niveau" required>
+        <option value="begynder"> begynder</option>
+        <option value="lettere øvet"> lettere øvet </option>
+        <option value="øvet"> øvet</option>
+        <option value="avanceret"> avanceret</option>
+    </select>
+    <small id="niveau_beskrivelse" class="info_text"></small>
+</div>
+
+<div class="form_group">
+    <label>Jeg har tid til at træne... </label>
+    <select type="select" name="træningsniveau" class="drop_down" id="niveau" required>
+        <option value=""> 1 gang om ugen</option>
+        <option value="lettere øvet"> 2-3 gange om ugen </option>
+        <option value="øvet">  3-5 gange om ugen </option>
+        <option value="avanceret"> 5+ gange om ugen</option>
+    </select>
+</div>
+
+<div class="form_group">
+    <label>Mine træningssessioner kan vare ca... </label>
+    <select type="select" name="træningslængde" class="drop_down" id="længde" required>
+        <option value="kort"> 30-45 min </option>
+        <option value="mellem"> 45-60 min </option>
+        <option value="lang"> + 1 time</option>
+    </select>
+</div>
+
+<h2>Sundhed & Skader </h2>
+<div class="form_group">
+    <label>Oplys venligst, hvor du har oplevet eller har skader</label>
+    <input type="text" name="skader" class="inputfield" placeholder="eks: knæ" id="skader">
+</div>
+
+<div class="form_group">
+    <label>Oplys venligst kroniske sygdomme</label>
+    <input type="text" name="sygdomme" class="inputfield" placeholder="eks: diabetes" id="skader">
+</div>
+
+        <button type="submit">Indsend</button>
+    </form>
+</div>
+
+<script src="js/frontpage.js"></script>
+</body>
+</html>
