@@ -9,7 +9,7 @@
 <body>
 
 <div class="form_wrapper">
-    <form action="næste_side.html" method="post">
+    <form action="exercises.html" method="POST" id="brugerform">
 
         <h1>Skræddersyet Træningsprogram</h1>
         <img src="images/arm.png" alt="symbol" class="symbol">
@@ -22,17 +22,17 @@
 
 <div class="form_group">
     <label>Højde (cm) </label>
-    <input type="text" name="højde" class="inputfield" id="højde" placeholder="eks: 185" required>
+    <input type="text" name="height" class="inputfield" id="height" placeholder="eks: 185" required>
 </div>
 
 <div class="form_group">
     <label>Vægt (kg) </label>
-    <input type="text" name="vægt" class="inputfield" id="vægt" placeholder="eks: 78" required>
+    <input type="text" name="weight" class="inputfield" id="weight" placeholder="eks: 78" required>
 </div>
 
 <div class="form_group">
     <label>Køn</label>
-    <select type="select" name="køn" class="drop_down" id="køn" required>
+    <select type="select" name="gender " class="drop_down" id="gender" required>
         <option value="mand">Mand</option>
         <option value="kvinde">Kvinde</option>
         <option value="andet">Andet</option>
@@ -67,10 +67,10 @@
 <div class="form_group">
     <label>Mit nuværende træningsniveau er...  </label>
     <select type="select" name="træningsniveau" class="drop_down" id="niveau" required>
-        <option value="begynder"> begynder</option>
-        <option value="lettere øvet"> lettere øvet </option>
-        <option value="øvet"> øvet</option>
-        <option value="avanceret"> avanceret</option>
+        <option value="begynder"> Begynder</option>
+        <option value="lettere øvet"> Lettere øvet </option>
+        <option value="øvet"> Øvet</option>
+        <option value="avanceret"> Avanceret</option>
     </select>
     <small id="niveau_beskrivelse" class="info_text"></small>
 </div>

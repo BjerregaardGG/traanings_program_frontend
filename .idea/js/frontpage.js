@@ -1,10 +1,5 @@
 console.log("vi er på forsiden");
 
-// fetch function to fetch films
-function fetchAnyUrl(url){
-    return fetch(url).then(response => response.json()).catch(error => console.error("Error when fetching", error));
-}
-
 // js objekt der opfører sig som et map med key value pairs
 const aktivitetBeskrivelse = {
     "1": "Ingen eller næsten ingen fysisk aktivitet.",
@@ -31,4 +26,19 @@ document.getElementById("niveau").addEventListener("change", function(){
     document.getElementById("niveau_beskrivelse").textContent = niveauBeskrivelse[valgteNiveau];
 
 })
+
+document.getElementById("brugerForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Stopper default navigation
+
+    const formData = new FormData(this); // Samler alle inputfelter og deres værdier i ét objekt.
+    const data = {}; // formData konverteres til et almindeligt JavaScript-objekt (et "plain object")
+
+    formData.forEach((value, key) => {
+        data[key] = value; // Key er navnet på inputfeltet, og value er det brugeren har skrevet
+    })
+
+    sessionStorage.setItem("trainingObject", JSON.stringify(data)); // converts trainingData object to JSON - later we convert the JSON back to an object
+
+});
+
 

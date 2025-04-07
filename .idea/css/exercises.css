@@ -1,0 +1,127 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY STYLING */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5deb3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* WRAPPER FOR EXERCISES AND PICTURES */
+.exercises {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Kan justeres afhængigt af skærmstørrelse */
+    gap: 20px;
+}
+
+/* EXERCISES SIDE */
+#exercise_list {
+    width: 45%; /* Gør øvelseslisten til 45% af containerens bredde */
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* PICTURE SIDE */
+#picture_list {
+    width: 45%; /* Gør billedsektionen til 45% af containerens bredde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* HEADING STYLING FOR BODY PARTS */
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+/* DROPDOWN STYLING */
+.exercise-dropdown {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+/* CHANGE ON FOCUS */
+.exercise-dropdown:focus {
+    border-color: #2563eb;
+    background-color: #fff;
+    outline: none;
+}
+
+/* IMAGE STYLING */
+.picture_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.picture_div img {
+    max-width: 100%;
+    max-height: 350px; /* Begrenser billedhøjde */
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* BUTTON STYLING (just in case) */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #f5deb3;
+    color: #0c0b0b;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* SMALL TEXT */
+small.info_text {
+    display: block;
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* SYMBOL IMAGE */
+.symbol {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    height: auto;
+}
