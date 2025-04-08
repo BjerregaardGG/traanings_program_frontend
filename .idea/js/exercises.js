@@ -1,4 +1,6 @@
 console.log("Jeg er på exercise siden")
+let data = JSON.parse(sessionStorage.getItem("trainingObject"))
+console.log(data);
 
 trainingObjectData = JSON.parse(sessionStorage.getItem("trainingObject")); // parses the JSON to a javaScript object
 
@@ -9,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //showPictureBasedOnExercise(`http://localhost:8080/exercises/bodyPart/${bodypart}`)
     })
     addFavoriteButton()
+    addGetProgramButton()
 });
 
 function fetchAnyUrl(url){
@@ -54,8 +57,10 @@ function addExerciseToPage(exercises, bodyPart){
 
     exercises.forEach(exercise => {
         const option = document.createElement("option")
-        option.value = exercise.name;
-        option.textContent = exercise.name;
+
+        option.value = exercise.name
+
+        option.textContent = exercise.name.charAt(0).toUpperCase() + exercise.name.slice(1);
         dropDown.appendChild(option)
         //console.log(exercise.bodyPart)
     })
@@ -93,15 +98,42 @@ function addFavoriteButton(fetchedExercises){
     })
 }
 
+function addGetProgramButton(){
+    const getProgramDiv = document.createElement("div")
+    getProgramDiv.className = "program_div"
+
+    const program = document.createElement("button")
+    program.id = "program"
+    program.textContent = "Get personalized program"
+    program.type = "submit"
+    getProgramDiv.appendChild(program)
+
+    const finalDiv = document.getElementById("add_exercises")
+    finalDiv.appendChild(getProgramDiv)
+
+    }
+
 function showFavoriteExercises(){
 
     const listDiv = document.createElement("div")
     listDiv.className = "list_div";
 
     const favoritListe = document.createElement("ul")
-    favoriteExercises.forEach(exercise => {
+
+    favoriteExercises.forEach((exercise, index) => {
         const favoritPunkt = document.createElement("li")
-        favoritPunkt.textContent = exercise
+        favoritPunkt.textContent = exercise.charAt(0).toUpperCase() + exercise.slice(1)
+
+        const deleteButton = document.createElement("button")
+        deleteButton.textContent = "🗑️"
+        deleteButton.id = "delete"
+        deleteButton.style.marginLeft = "10px"
+        deleteButton.addEventListener("click", function(){
+            favoriteExercises.splice(index, 1)
+            showFavoriteExercises();
+        })
+
+        favoritPunkt.appendChild(deleteButton)
         favoritListe.appendChild(favoritPunkt)
     })
 
@@ -112,7 +144,6 @@ function showFavoriteExercises(){
     finalListDiv.appendChild(listDiv)
 
 }
-
 
 async function showPictureBasedOnExercise(fetchedExercises, bodyPart){
 
@@ -153,6 +184,54 @@ async function showPictureBasedOnExercise(fetchedExercises, bodyPart){
             console.log("Can not find exercise")
         }
     })}
+
+async function sendInfoAndGetProgram(){
+
+    let url =`http://localhost:8080/exercises/program`
+    brugerDatas = JSON.parse(sessionStorage.getItem("trainingObject"))
+
+    const finalObject = {
+        brugerData : JSON.stringify(brugerDatas),
+        exercises : favoriteExercises
+    };
+
+    console.log(finalObject);
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(finalObject)
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+        }
+
+        const program = await response.json();
+
+        sessionStorage.setItem("program", JSON.stringify(program));
+
+        window.location.href = "personalizedProgram.html";
+
+    }catch (error){
+        console.log("Kunne ikke finde træningsprogrammet", error)
+
+    }
+
+}
+
+document.getElementById("brugerform").addEventListener("submit", function(e){
+    e.preventDefault();
+    console.log("Form sendt!");
+    sendInfoAndGetProgram();
+})
+
+// sessionStorage.setItem("trainingExercises", JSON.stringify(favoriteExercises));
+
 
 
 /*function addExerciseToPage(exercises){

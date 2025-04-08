@@ -9,7 +9,7 @@
 <body>
 
 <div class="form_wrapper">
-    <form action="exercises.html" method="POST" id="brugerform">
+    <form method="POST" id="brugerform">
 
         <h1>Skræddersyet Træningsprogram</h1>
         <img src="images/arm.png" alt="symbol" class="symbol">
@@ -19,6 +19,11 @@
     <label>Navn</label>
     <input type="text" name="name" class="inputfield" id="username" required>
 </div>
+
+        <div class="form_group">
+            <label>Alder</label>
+            <input type="text" name="alder" class="inputfield" id="alder" required>
+        </div>
 
 <div class="form_group">
     <label>Højde (cm) </label>
@@ -42,11 +47,11 @@
 <div class="form_group">
     <label>Nuværende Aktivitetsniveau</label>
     <select type="select" name="aktivitetsniveau" class="drop_down" id="aktivitetsniveau" required>
-        <option value="1"> 1 - Meget stillesidende</option>
-        <option value="2"> 2 - Lidt aktiv </option>
-        <option value="3"> 3 - Moderat aktiv </option>
-        <option value="4"> 4 - Aktiv </option>
-        <option value="5"> 5 - Meget aktiv </option>
+        <option value="Meget stillesidende"> 1 - Meget stillesidende</option>
+        <option value="Lidt aktiv"> 2 - Lidt aktiv </option>
+        <option value="Moderat aktiv"> 3 - Moderat aktiv </option>
+        <option value="Aktiv"> 4 - Aktiv </option>
+        <option value="Meget aktiv"> 5 - Meget aktiv </option>
     </select>
     <small id="aktiv_beskrivelse" class="info_text"></small>
 </div>
@@ -78,10 +83,10 @@
 <div class="form_group">
     <label>Jeg har tid til at træne... </label>
     <select type="select" name="træningsniveau" class="drop_down" id="niveau" required>
-        <option value=""> 1 gang om ugen</option>
-        <option value="lettere øvet"> 2-3 gange om ugen </option>
-        <option value="øvet">  3-5 gange om ugen </option>
-        <option value="avanceret"> 5+ gange om ugen</option>
+        <option value="1 gang om ugen"> 1 gang om ugen</option>
+        <option value="2-3 gange om ugen"> 2-3 gange om ugen </option>
+        <option value="3-5 gange om ugen">  3-5 gange om ugen </option>
+        <option value="5+ gange om ugen"> 5+ gange om ugen</option>
     </select>
 </div>
 

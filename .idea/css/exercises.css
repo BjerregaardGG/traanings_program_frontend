@@ -8,7 +8,7 @@
 /* BODY STYLING */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f5deb3;
+    background-color: #f89d6d;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -25,9 +25,26 @@ body {
     gap: 20px;
 }
 
+/* FAVORITES COLUMN */
+#favorite_button,
+#favorite_exercises {
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* FAVORITES LIST CONTAINER */
+.favorites-container {
+    width: 25%; /* Venstre kolonne */
+    display: flex;
+    flex-direction: column;
+}
+
 /* EXERCISES SIDE */
 #exercise_list {
-    width: 45%; /* Gør øvelseslisten til 45% af containerens bredde */
+    width: 35%; /* Midterste kolonne */
     background-color: white;
     padding: 20px;
     border-radius: 12px;
@@ -36,9 +53,10 @@ body {
 
 /* PICTURE SIDE */
 #picture_list {
-    width: 45%; /* Gør billedsektionen til 45% af containerens bredde */
+    width: 35%; /* Højre kolonne */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     background-color: white;
     padding: 20px;
@@ -52,6 +70,15 @@ h3 {
     font-weight: 600;
     color: #1f2937;
     margin-bottom: 10px;
+}
+
+/* FAVORITES HEADING */
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 /* DROPDOWN STYLING */
@@ -76,52 +103,99 @@ h3 {
 /* IMAGE STYLING */
 .picture_div {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: 100px;
 }
 
 .picture_div img {
     max-width: 100%;
     max-height: 350px; /* Begrenser billedhøjde */
     width: auto;
-    height: auto;
+    height: 500px;
     border-radius: 8px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
 }
 
-/* BUTTON STYLING (just in case) */
-button {
+/* BUTTON STYLING */
+button  {
     width: 100%;
     padding: 14px;
-    background-color: #f5deb3;
     color: #0c0b0b;
     font-size: 16px;
     border: none;
     border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     transition: background 0.3s;
 }
 
-button:hover {
-    background-color: #1d4ed8;
+#favorite {
+    background-color: #439a07;
 }
 
-/* SMALL TEXT */
-small.info_text {
-    display: block;
-    font-size: 0.85rem;
-    color: #6b7280;
-    margin-top: 6px;
-    font-style: italic;
+#program {
+    background-color: #6b9ae1;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
 }
 
-/* SYMBOL IMAGE */
-.symbol {
-    display: block;
-    margin: 20px auto;
-    width: 100px;
-    height: auto;
+#program:hover{
+    background-color: #afc8ec;
 }
+
+#delete {
+    background-color: #8b0000;
+    width: 90%;
+    padding: 14px;
+    color: #0c0b0b;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+#favorite:hover {
+    background-color: #bdeaa6;
+}
+
+#delete:hover {
+    background-color: #ef3939;
+}
+
+button.favorite-btn:hover {
+    background-color: #c9ae83;
+}
+
+#favorite_exercises li {
+    list-style-type: none; /* Fjerner bullets */
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #1f2937;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#favorite_exercises li:hover {
+    background-color: #e5e7eb;
+}
+

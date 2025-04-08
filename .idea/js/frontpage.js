@@ -2,11 +2,11 @@ console.log("vi er på forsiden");
 
 // js objekt der opfører sig som et map med key value pairs
 const aktivitetBeskrivelse = {
-    "1": "Ingen eller næsten ingen fysisk aktivitet.",
-    "2": "Overvejende stillesiddende med lidt bevægelse, f.eks. kontorarbejde.",
-    "3": "Let træning 1-3 gange om ugen eller bevægelse i hverdagen.",
-    "4": "Træning flere gange om ugen eller fysisk krævende job.",
-    "5": "Daglig hård træning eller meget fysisk arbejde."
+    "Meget stillesidende": "Ingen eller næsten ingen fysisk aktivitet.",
+    "Lidt aktiv": "Overvejende stillesiddende med lidt bevægelse, f.eks. kontorarbejde.",
+    "Moderat aktiv": "Let træning 1-3 gange om ugen eller bevægelse i hverdagen.",
+    "Aktiv": "Træning flere gange om ugen eller fysisk krævende job.",
+    "Meget aktiv": "Daglig hård træning eller meget fysisk arbejde."
 }
 
 const niveauBeskrivelse = {
@@ -27,7 +27,7 @@ document.getElementById("niveau").addEventListener("change", function(){
 
 })
 
-document.getElementById("brugerForm").addEventListener("submit", function(e) {
+document.getElementById("brugerform").addEventListener("submit", function(e) {
     e.preventDefault(); // Stopper default navigation
 
     const formData = new FormData(this); // Samler alle inputfelter og deres værdier i ét objekt.
@@ -38,7 +38,10 @@ document.getElementById("brugerForm").addEventListener("submit", function(e) {
     })
 
     sessionStorage.setItem("trainingObject", JSON.stringify(data)); // converts trainingData object to JSON - later we convert the JSON back to an object
+    sessionStorage.setItem("objekt", JSON.stringify({ navn: "Mikkel", alder: 25 }))
 
+    window.location.href = "exercises.html";
 });
+
 
 

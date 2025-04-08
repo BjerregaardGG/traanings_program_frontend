@@ -2,18 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Forside</title>
+    <title>Øvelser</title>
     <link rel="stylesheet" href="css/exercises.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="exercises">
-    <div id="exercise_list"></div>
-    <div id="picture_list"></div>
-    <div id="favorite_button"></div>
-    <div id="favorite_exercises"></div>
+    <!-- Venstre kolonne -->
+    <div class="favorites-container">
+        <div id="favorite_button">
+            <h2>Favorite Exercises</h2>
+            <!-- Add favorite knap tilføjes dynamisk via JavaScript -->
+        </div>
+        <div id="favorite_exercises">
+            <!-- Her vises listen over favorit øvelser -->
+            <div id="favorites-list">
+                <!-- Vil blive fyldt dynamisk via JavaScript -->
+            </div>
+        </div>
+        <form method="POST" id="brugerform">
+        <div id="add_exercises">
+        </div>
+        </form>
+    </div>
+
+    <!-- Midterste kolonne -->
+    <div id="exercise_list">
+        <h2>Muscle Groups</h2>
+        <!-- Dropdown menuer for de forskellige kropsgrupper -->
+    </div>
+
+    <!-- Højre kolonne -->
+    <div id="picture_list">
+        <h2>Exercise Illustration</h2>
+        <!-- Billeder og information om den valgte øvelse -->
+    </div>
 </div>
+
 <script src="js/exercises.js"></script>
 </body>
 </html>
