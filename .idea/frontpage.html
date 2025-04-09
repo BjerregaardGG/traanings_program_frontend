@@ -11,106 +11,106 @@
 <div class="form_wrapper">
     <form method="POST" id="brugerform">
 
-        <h1>Skræddersyet Træningsprogram</h1>
+        <h1>Personal Training Program</h1>
         <img src="images/arm.png" alt="symbol" class="symbol">
 
-<h2> Brugeroplysninger </h2>
-<div class="form_group">
-    <label>Navn</label>
-    <input type="text" name="name" class="inputfield" id="username" required>
-</div>
-
+        <h2>User Information</h2>
         <div class="form_group">
-            <label>Alder</label>
-            <input type="text" name="alder" class="inputfield" id="alder" required>
+            <label>Name</label>
+            <input type="text" name="name" class="inputfield" id="username" required>
         </div>
 
-<div class="form_group">
-    <label>Højde (cm) </label>
-    <input type="text" name="height" class="inputfield" id="height" placeholder="eks: 185" required>
-</div>
+        <div class="form_group">
+            <label>Age</label>
+            <input type="text" name="age" class="inputfield" id="alder" required>
+        </div>
 
-<div class="form_group">
-    <label>Vægt (kg) </label>
-    <input type="text" name="weight" class="inputfield" id="weight" placeholder="eks: 78" required>
-</div>
+        <div class="form_group">
+            <label>Height (cm)</label>
+            <input type="text" name="height" class="inputfield" id="height" placeholder="e.g.: 185" required>
+        </div>
 
-<div class="form_group">
-    <label>Køn</label>
-    <select type="select" name="gender " class="drop_down" id="gender" required>
-        <option value="mand">Mand</option>
-        <option value="kvinde">Kvinde</option>
-        <option value="andet">Andet</option>
-    </select>
-</div>
+        <div class="form_group">
+            <label>Weight (kg)</label>
+            <input type="text" name="weight" class="inputfield" id="weight" placeholder="e.g.: 78" required>
+        </div>
 
-<div class="form_group">
-    <label>Nuværende Aktivitetsniveau</label>
-    <select type="select" name="aktivitetsniveau" class="drop_down" id="aktivitetsniveau" required>
-        <option value="Meget stillesidende"> 1 - Meget stillesidende</option>
-        <option value="Lidt aktiv"> 2 - Lidt aktiv </option>
-        <option value="Moderat aktiv"> 3 - Moderat aktiv </option>
-        <option value="Aktiv"> 4 - Aktiv </option>
-        <option value="Meget aktiv"> 5 - Meget aktiv </option>
-    </select>
-    <small id="aktiv_beskrivelse" class="info_text"></small>
-</div>
+        <div class="form_group">
+            <label>Gender</label>
+            <select type="select" name="gender" class="drop_down" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
 
-<h2>Personlige Mål & Præfferencer</h2>
-<div class="form_group">
-    <p>Vælg det udsagn der passer bedst til dig: </p>
-    <label>Målet med min træning er at opnå </label>
-    <select type="select" name="mål" class="drop_down" id="mål" required>
-        <option value="udholdenhed">... mere udholdenhed</option>
-        <option value="muskelmasse">... større muskelmasse</option>
-        <option value="vægt">... en lavere vægt</option>
-        <option value="cardio">... en bedre cardio</option>
-        <option value="sundhed">... en øget generel sundhed</option>
-    </select>
-</div>
+        <div class="form_group">
+            <label>Current Activity Level</label>
+            <select type="select" name="activity_level" class="drop_down" id="aktivitetsniveau" required>
+                <option value="Very sedentary">1 - Very sedentary</option>
+                <option value="Lightly active">2 - Lightly active</option>
+                <option value="Moderately active">3 - Moderately active</option>
+                <option value="Active">4 - Active</option>
+                <option value="Very active">5 - Very active</option>
+            </select>
+            <small id="aktiv_beskrivelse" class="info_text"></small>
+        </div>
 
-<div class="form_group">
-    <label>Mit nuværende træningsniveau er...  </label>
-    <select type="select" name="træningsniveau" class="drop_down" id="niveau" required>
-        <option value="begynder"> Begynder</option>
-        <option value="lettere øvet"> Lettere øvet </option>
-        <option value="øvet"> Øvet</option>
-        <option value="avanceret"> Avanceret</option>
-    </select>
-    <small id="niveau_beskrivelse" class="info_text"></small>
-</div>
+        <h2>Personal Goals & Preferences</h2>
+        <div class="form_group">
+            <p>Select the statement that describes you the best:</p>
+            <label>My goal with training is to achieve...</label>
+            <select type="select" name="goal" class="drop_down" id="mål" required>
+                <option value="endurance">... more endurance</option>
+                <option value="muscle_mass">... more muscle mass</option>
+                <option value="weight_loss">... a lower weight</option>
+                <option value="cardio">... better cardio</option>
+                <option value="health">... improved general health</option>
+            </select>
+        </div>
 
-<div class="form_group">
-    <label>Jeg har tid til at træne... </label>
-    <select type="select" name="træningsniveau" class="drop_down" id="niveau" required>
-        <option value="1 gang om ugen"> 1 gang om ugen</option>
-        <option value="2-3 gange om ugen"> 2-3 gange om ugen </option>
-        <option value="3-5 gange om ugen">  3-5 gange om ugen </option>
-        <option value="5+ gange om ugen"> 5+ gange om ugen</option>
-    </select>
-</div>
+        <div class="form_group">
+            <label>My current training level is...</label>
+            <select type="select" name="training_level" class="drop_down" id="niveau" required>
+                <option value="beginner">Beginner</option>
+                <option value="some_experience">Some experience</option>
+                <option value="experienced">Experienced</option>
+                <option value="advanced">Advanced</option>
+            </select>
+            <small id="niveau_beskrivelse" class="info_text"></small>
+        </div>
 
-<div class="form_group">
-    <label>Mine træningssessioner kan vare ca... </label>
-    <select type="select" name="træningslængde" class="drop_down" id="længde" required>
-        <option value="kort"> 30-45 min </option>
-        <option value="mellem"> 45-60 min </option>
-        <option value="lang"> + 1 time</option>
-    </select>
-</div>
+        <div class="form_group">
+            <label>I have time to train...</label>
+            <select type="select" name="training_frequency" class="drop_down" id="niveau" required>
+                <option value="once a week">Once a week</option>
+                <option value="2-3 times a week">2-3 times a week</option>
+                <option value="3-5 times a week">3-5 times a week</option>
+                <option value="5+ times a week">5+ times a week</option>
+            </select>
+        </div>
 
-<h2>Sundhed & Skader </h2>
-<div class="form_group">
-    <label>Oplys venligst, hvor du har oplevet eller har skader</label>
-    <input type="text" name="skader" class="inputfield" placeholder="eks: knæ" id="skader">
-</div>
+        <div class="form_group">
+            <label>My training sessions can last about...</label>
+            <select type="select" name="training_duration" class="drop_down" id="længde" required>
+                <option value="short">30–45 minutes</option>
+                <option value="medium">45–60 minutes</option>
+                <option value="long">+1 hour</option>
+            </select>
+        </div>
 
-<div class="form_group">
-    <label>Oplys venligst kroniske sygdomme</label>
-    <input type="text" name="sygdomme" class="inputfield" placeholder="eks: diabetes" id="skader">
-</div>
+        <h2>Health & Injuries</h2>
+        <div class="form_group">
+            <label>Please state any past or current injuries</label>
+            <input type="text" name="injuries" class="inputfield" placeholder="e.g.: knee injury" id="skader">
+        </div>
 
-        <button type="submit">Indsend</button>
+        <div class="form_group">
+            <label>Please state any chronic illnesses</label>
+            <input type="text" name="illnesses" class="inputfield" placeholder="e.g.: asthma" id="sygdomme">
+        </div>
+
+        <button type="submit">Submit</button>
     </form>
 </div>
 

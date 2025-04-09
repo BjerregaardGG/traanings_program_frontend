@@ -33,7 +33,7 @@ async function getExercises(url, bodyPart){
         const uniqueExercises = Array.from(
             new Map(fetchedExercises.map(item => [item.name, item])).values());
 
-        //console.log("Unique exercises:", uniqueExercises);
+        console.log("Unique exercises:", uniqueExercises);
         addExerciseToPage(uniqueExercises, bodyPart)
         showPictureBasedOnExercise(uniqueExercises, bodyPart);
     }catch(error){
@@ -83,7 +83,7 @@ function addFavoriteButton(fetchedExercises){
 
     const favorite = document.createElement("button")
     favorite.id="favorite"
-    favorite.textContent = "Add to favorites"
+    favorite.textContent = "Add To Favorites"
     favoriteDiv.appendChild(favorite)
 
     const finalDiv = document.getElementById("favorite_button");
@@ -104,7 +104,7 @@ function addGetProgramButton(){
 
     const program = document.createElement("button")
     program.id = "program"
-    program.textContent = "Get personalized program"
+    program.textContent = "Get Personal Program"
     program.type = "submit"
     getProgramDiv.appendChild(program)
 
@@ -125,9 +125,9 @@ function showFavoriteExercises(){
         favoritPunkt.textContent = exercise.charAt(0).toUpperCase() + exercise.slice(1)
 
         const deleteButton = document.createElement("button")
-        deleteButton.textContent = "Delete exercise 🗑️"
+        deleteButton.textContent = "Remove"
         deleteButton.id = "delete"
-        deleteButton.style.marginLeft = "10px"
+        deleteButton.style.marginLeft = "5px"
         deleteButton.addEventListener("click", function(){
             favoriteExercises.splice(index, 1)
             showFavoriteExercises();
@@ -164,21 +164,56 @@ async function showPictureBasedOnExercise(fetchedExercises, bodyPart){
             const selectedExercise = fetchedExercises.find(exercise => exercise.name === selectedExerciseName);
 
         if(selectedExercise) {
-
+            // for favoriteExercises list
             currentExercise = selectedExercise;
+
+            //add a title
+            const titel = document.createElement("h2")
+            titel.textContent = selectedExercise.name.charAt(0).toUpperCase() + selectedExercise.name.slice(1);
+
+            //add bodypart
+            const bodyPart = document.createElement("h4")
+            bodyPart.className = "description_class"
+            bodyPart.textContent = "Main muscle group: " + selectedExercise.bodyPart.charAt(0).toUpperCase() + selectedExercise.bodyPart.slice(1);
+
+
+            // add target
+            const target = document.createElement("h4")
+            target.className = "description_class"
+            target.textContent = "Target: " + selectedExercise.target.charAt(0).toUpperCase() + selectedExercise.target.slice(1);
+
+            //add equipment
+            const equipment = document.createElement("h4")
+            equipment.className = "description_class"
+            equipment.textContent = "Equipment: " + selectedExercise.equipment.charAt(0).toUpperCase() + selectedExercise.equipment.slice(1);
+
+            // add description
+            const instruction = document.createElement("h5")
+            instruction.className = "description_class"
+            const beskrivelse = selectedExercise.instructions.join(" "); // konverterer array til en string
+            instruction.textContent = beskrivelse;
+
+            //add secondary muscles
+            const secMuscles = document.createElement("h4")
+            secMuscles.className = "description_class"
+            const muscBeskrivelse = selectedExercise.secondaryMuscles.join(" & ")
+            secMuscles.textContent = "Secondary muscles: " + muscBeskrivelse.charAt(0).toUpperCase() + muscBeskrivelse.slice(1);;
 
             // adss a picture based on link
             pictureDiv.innerHTML = "";
             console.log(selectedExercise);
             const picture = document.createElement("img");
             picture.setAttribute("src", selectedExercise.gifUrl)
-            console.log("test")
 
-            picture.setAttribute("alt", "x")
-            picture.setAttribute("width", 150)
-            picture.setAttribute("height", 180)
-
+            pictureDiv.appendChild(titel);
             pictureDiv.appendChild(picture);
+            pictureDiv.appendChild(instruction);
+            pictureDiv.appendChild(bodyPart);
+            pictureDiv.appendChild(secMuscles);
+            pictureDiv.appendChild(target);
+            pictureDiv.appendChild(equipment);
+
+
             finalDiv.appendChild(pictureDiv);
         }else{
             console.log("Can not find exercise")

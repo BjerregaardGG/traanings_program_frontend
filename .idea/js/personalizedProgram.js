@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("siden er loadet")
     const program = JSON.parse(sessionStorage.getItem("program"))
     console.log(program)
-    addSearchButton();
+    //addSearchButton();
     showProgram();
 
 })
@@ -11,17 +11,47 @@ function showProgram(){
     const programDiv = document.createElement("div")
     programDiv.className = "program_div"
 
+    const keywords = ["Day", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9.", "10."];
+
     const personligtProgram = JSON.parse(sessionStorage.getItem("program"))
-    const formattedProgram = personligtProgram.answer.replace(/\n/g, '<br>')
+    let formattedProgram = personligtProgram.answer.replace(/\n/g, '<br>')
+
+    // Gør linjer der starter med "Day" til fed skrift
+    // matcher start, day og til til br
+    formattedProgram = formattedProgram.replace(/(^|\<br\>)Day.*?(?=\<br\>|$)/g, match => {
+        return `<strong>${match}</strong>`;
+    });
 
     const showProgram = document.createElement("div")
     showProgram.innerHTML = formattedProgram;
+    showProgram.style.fontSize = "15px";
+    showProgram.style.fontFamily = "'Helvetica'";
     programDiv.appendChild(showProgram);
 
     const finalDiv = document.getElementById("personligt_program")
     finalDiv.appendChild(programDiv);
 }
 
+document.getElementById("downloadBtn").addEventListener("click", function(){
+
+    const program = JSON.parse(sessionStorage.getItem("program")).answer;
+
+    // Binary Large Object - data container
+    const blob = new Blob([program], {type: "text/plain"});
+    const url = URL.createObjectURL(blob)
+
+    // usynligt download link
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "træningsprogram.txt"
+    a.click();
+    URL.revokeObjectURL(url);
+
+
+
+})
+
+/*
 function addSearchButton(){
     const searchDiv = document.createElement("div")
     searchDiv.className = "serch_divclass"
@@ -32,4 +62,4 @@ function addSearchButton(){
 
     const finalDiv = document.getElementById("search_button")
     finalDiv.appendChild(searchDiv);
-}
+}*/
