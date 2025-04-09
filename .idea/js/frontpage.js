@@ -38,7 +38,6 @@ document.getElementById("brugerform").addEventListener("submit", function(e) {
     })
 
     sessionStorage.setItem("trainingObject", JSON.stringify(data)); // converts trainingData object to JSON - later we convert the JSON back to an object
-    sessionStorage.setItem("objekt", JSON.stringify({ navn: "Mikkel", alder: 25 }))
 
     window.location.href = "exercises.html";
 });

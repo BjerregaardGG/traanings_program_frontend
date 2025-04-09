@@ -125,7 +125,7 @@ function showFavoriteExercises(){
         favoritPunkt.textContent = exercise.charAt(0).toUpperCase() + exercise.slice(1)
 
         const deleteButton = document.createElement("button")
-        deleteButton.textContent = "🗑️"
+        deleteButton.textContent = "Delete exercise 🗑️"
         deleteButton.id = "delete"
         deleteButton.style.marginLeft = "10px"
         deleteButton.addEventListener("click", function(){
