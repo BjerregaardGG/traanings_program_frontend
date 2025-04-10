@@ -13,18 +13,26 @@
     <div class="favorites-container">
         <div id="favorite_button">
             <h2>Favorite Exercises</h2>
-            <!-- Add favorite knap tilføjes dynamisk via JavaScript -->
         </div>
+
         <div id="favorite_exercises">
-            <!-- Her vises listen over favorit øvelser -->
             <div id="favorites-list">
-                <!-- Vil blive fyldt dynamisk via JavaScript -->
             </div>
         </div>
+
+        <form method="POST" id="chatBot">
+        <div id="chat_bot_question">
+            <h3>Got any questions related to your training?</h3>
+            <input id="inputfield" type="text">
+            <button id="enter">Ask question</button>
+        </div>
+        </form>
+
         <form method="POST" id="brugerform">
         <div id="add_exercises">
         </div>
         </form>
+
     </div>
 
     <!-- Midterste kolonne -->
@@ -40,6 +48,7 @@
         <h2>Exercise Illustration</h2>
         <!-- Billeder og information om den valgte øvelse -->
     </div>
+
 </div>
 
 <script src="js/exercises.js"></script>

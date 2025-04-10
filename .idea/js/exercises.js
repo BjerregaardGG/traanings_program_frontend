@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     addFavoriteButton()
     addGetProgramButton()
+
 });
 
 function fetchAnyUrl(url){
@@ -110,8 +111,53 @@ function addGetProgramButton(){
 
     const finalDiv = document.getElementById("add_exercises")
     finalDiv.appendChild(getProgramDiv)
+    }
+
+async function askChatBotAndGetAnswer(){
+
+    const input = document.getElementById("inputfield")
+    const question = input.value;
+
+    let url =`http://localhost:8080/exercises/chatbot`
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(question)
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+        }
+
+        const answer = await response.json();
+
+        sessionStorage.setItem("chatsvar", JSON.stringify(answer));
+
+        const responseBoxDiv = document.createElement("div")
+        responseBoxDiv.className = "response_box"
+
+        responseBoxDiv.textContent = answer.answer;
+
+        const finalDiv = document.getElementById("chat_bot_question")
+        finalDiv.appendChild(responseBoxDiv)
+
+    } catch (error) {
+        console.log("Kunne ikke finde træningsprogrammet", error)
 
     }
+}
+
+document.getElementById("chatBot").addEventListener("submit", function(e){
+    e.preventDefault();
+    console.log("Spørgsmål sendt!");
+    askChatBotAndGetAnswer()
+    addLoadingScreen()
+})
 
 function showFavoriteExercises(){
 
@@ -256,6 +302,15 @@ async function sendInfoAndGetProgram(){
         console.log("Kunne ikke finde træningsprogrammet", error)
 
     }
+}
+
+function addLoadingScreen(){
+
+    const loadingDiv = document.createElement("div")
+    loadingDiv.className = "loader"
+
+    const exerciseDiv = document.getElementById("add_exercises")
+    exerciseDiv.appendChild(loadingDiv);
 
 }
 
@@ -263,6 +318,8 @@ document.getElementById("brugerform").addEventListener("submit", function(e){
     e.preventDefault();
     console.log("Form sendt!");
     sendInfoAndGetProgram();
+    addLoadingScreen();
+
 })
 
 // sessionStorage.setItem("trainingExercises", JSON.stringify(favoriteExercises));

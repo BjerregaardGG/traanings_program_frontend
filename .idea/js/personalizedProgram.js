@@ -11,15 +11,13 @@ function showProgram(){
     const programDiv = document.createElement("div")
     programDiv.className = "program_div"
 
-    const keywords = ["Day", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9.", "10."];
-
     const personligtProgram = JSON.parse(sessionStorage.getItem("program"))
     let formattedProgram = personligtProgram.answer.replace(/\n/g, '<br>')
 
     // Gør linjer der starter med "Day" til fed skrift
     // matcher start, day og til til br
     formattedProgram = formattedProgram.replace(/(^|\<br\>)Day.*?(?=\<br\>|$)/g, match => {
-        return `<strong>${match}</strong>`;
+        return `<strong>${match}</strong><br>`;
     });
 
     const showProgram = document.createElement("div")
@@ -32,6 +30,8 @@ function showProgram(){
     finalDiv.appendChild(programDiv);
 }
 
+
+// downloade program - opretter blob objekt og laver url der på usynligt download link
 document.getElementById("downloadBtn").addEventListener("click", function(){
 
     const program = JSON.parse(sessionStorage.getItem("program")).answer;
@@ -40,7 +40,7 @@ document.getElementById("downloadBtn").addEventListener("click", function(){
     const blob = new Blob([program], {type: "text/plain"});
     const url = URL.createObjectURL(blob)
 
-    // usynligt download link
+    // usynligt download link - reagerer på click()
     const a = document.createElement("a")
     a.href = url
     a.download = "træningsprogram.txt"
