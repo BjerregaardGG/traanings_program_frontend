@@ -102,6 +102,25 @@ button {
     transition: background 0.3s;
 }
 
+#downloadBtn, #backToHome {
+    width: 49%;
+    padding: 14px;
+    background-color: #f5deb3;
+    color: #0c0b0b;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s;
+}
+
+#downloadBtn:hover, #backToHome:hover {
+    background-color: #1d4ed8 ;
+
+}
+
 button:hover {
     background-color: #1d4ed8;
 }

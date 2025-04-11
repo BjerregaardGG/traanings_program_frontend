@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// fetch any url metode
 function fetchAnyUrl(url){
     return fetch(url).then(response => response.json()).catch(error => console.error("Error when fetching", error));
 }
@@ -22,9 +23,8 @@ function fetchAnyUrl(url){
 let bodyParts = ["chest", "shoulders", "back", "waist", "upper legs",
     "upper arms", "lower arms", "lower legs"]
 
-//let url = "http://localhost:8080/exercises" // evt bare hent for bodypart og så kald funktionen på de forskellige muskelgrupper
-//let urlChest = "http://localhost:8080/exercises/bodyPart/chest"
 
+// henter exercises og tilføjer de unikke til et array
 async function getExercises(url, bodyPart){
     try {
         const fetchedExercises = await fetchAnyUrl(url);
@@ -42,6 +42,7 @@ async function getExercises(url, bodyPart){
     }
 }
 
+// tilføjer exercises til siden ud fra bodypart
 function addExerciseToPage(exercises, bodyPart){
     const exerciseDiv = document.createElement("div")
     exerciseDiv.className = "exercise_div";
@@ -77,6 +78,7 @@ function addExerciseToPage(exercises, bodyPart){
 let favoriteExercises = []
 let currentExercise = null
 
+// tilføjer en knap til at tilføje favoritter til en liste
 function addFavoriteButton(fetchedExercises){
 
     const favoriteDiv = document.createElement("div")
@@ -99,6 +101,7 @@ function addFavoriteButton(fetchedExercises){
     })
 }
 
+// tilføjer en knap til at kunne få sit træningsprogram
 function addGetProgramButton(){
     const getProgramDiv = document.createElement("div")
     getProgramDiv.className = "program_div"
@@ -113,6 +116,7 @@ function addGetProgramButton(){
     finalDiv.appendChild(getProgramDiv)
     }
 
+// async function der kalder backend med et spørgsmål og får et træningssvar retur
 async function askChatBotAndGetAnswer(){
 
     const input = document.getElementById("inputfield")
@@ -156,9 +160,9 @@ document.getElementById("chatBot").addEventListener("submit", function(e){
     e.preventDefault();
     console.log("Spørgsmål sendt!");
     askChatBotAndGetAnswer()
-    addLoadingScreen()
 })
 
+// viser favoritøvelser fra favoriteExercises listen
 function showFavoriteExercises(){
 
     const listDiv = document.createElement("div")
@@ -171,7 +175,7 @@ function showFavoriteExercises(){
         favoritPunkt.textContent = exercise.charAt(0).toUpperCase() + exercise.slice(1)
 
         const deleteButton = document.createElement("button")
-        deleteButton.textContent = "Remove"
+        deleteButton.textContent = "Remove from list"
         deleteButton.id = "delete"
         deleteButton.style.marginLeft = "5px"
         deleteButton.addEventListener("click", function(){
@@ -191,6 +195,7 @@ function showFavoriteExercises(){
 
 }
 
+// viser billede for hver exercise + ekstra informationer omkring øvelsen
 async function showPictureBasedOnExercise(fetchedExercises, bodyPart){
 
     const pictureDiv = document.createElement("div")
@@ -221,7 +226,6 @@ async function showPictureBasedOnExercise(fetchedExercises, bodyPart){
             const bodyPart = document.createElement("h4")
             bodyPart.className = "description_class"
             bodyPart.textContent = "Main muscle group: " + selectedExercise.bodyPart.charAt(0).toUpperCase() + selectedExercise.bodyPart.slice(1);
-
 
             // add target
             const target = document.createElement("h4")
@@ -266,6 +270,7 @@ async function showPictureBasedOnExercise(fetchedExercises, bodyPart){
         }
     })}
 
+// async funktion der sender brugerdata og øvelser til backend og får et træningsprogram retur
 async function sendInfoAndGetProgram(){
 
     let url =`http://localhost:8080/exercises/program`
@@ -304,6 +309,7 @@ async function sendInfoAndGetProgram(){
     }
 }
 
+// adder en loading button
 function addLoadingScreen(){
 
     const loadingDiv = document.createElement("div")

@@ -2,11 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("siden er loadet")
     const program = JSON.parse(sessionStorage.getItem("program"))
     console.log(program)
-    //addSearchButton();
     showProgram();
-
 })
 
+// funktion til at vise programmet - sørger for at programmet er præsentabelt
 function showProgram(){
     const programDiv = document.createElement("div")
     programDiv.className = "program_div"
@@ -15,7 +14,7 @@ function showProgram(){
     let formattedProgram = personligtProgram.answer.replace(/\n/g, '<br>')
 
     // Gør linjer der starter med "Day" til fed skrift
-    // matcher start, day og til til br
+    // matcher start, day og til br
     formattedProgram = formattedProgram.replace(/(^|\<br\>)Day.*?(?=\<br\>|$)/g, match => {
         return `<strong>${match}</strong><br>`;
     });
@@ -30,6 +29,9 @@ function showProgram(){
     finalDiv.appendChild(programDiv);
 }
 
+document.getElementById("backToHome").addEventListener("click", function(){
+    window.location.href = "frontpage.html"
+})
 
 // downloade program - opretter blob objekt og laver url der på usynligt download link
 document.getElementById("downloadBtn").addEventListener("click", function(){
@@ -46,20 +48,4 @@ document.getElementById("downloadBtn").addEventListener("click", function(){
     a.download = "træningsprogram.txt"
     a.click();
     URL.revokeObjectURL(url);
-
-
-
 })
-
-/*
-function addSearchButton(){
-    const searchDiv = document.createElement("div")
-    searchDiv.className = "serch_divclass"
-
-    const searchButton = document.createElement("search")
-    searchButton.textContent = "search for exercise"
-    searchDiv.appendChild(searchButton)
-
-    const finalDiv = document.getElementById("search_button")
-    finalDiv.appendChild(searchDiv);
-}*/
